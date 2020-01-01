@@ -53,7 +53,7 @@ func getScore(selection *goquery.Selection) float64 {
 }
 
 func getMetascore(selection *goquery.Selection) int64 {
-	metascore := getValueFromSiteSelection(selection, "div.inline-block.ratings-metascore span.metascore.favorable", "")
+	metascore := getValueFromSiteSelection(selection, "div.inline-block.ratings-metascore span.metascore", "")
 	if metascore == "" {
 		return 0
 	}
