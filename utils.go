@@ -29,6 +29,6 @@ func stringToFloat(value string) float64 {
 	return number
 }
 
-func fillURL(list string) string {
+func fillURLWithList(list string) string {
 	return fmt.Sprintf("https://www.imdb.com/list/%s/", list)
 }

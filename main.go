@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	site := fillURL("")
+	site := fillURLWithList("")
 	document, err := loadSite(site)
 	if err != nil {
 		panic(err)
