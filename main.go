@@ -15,6 +15,7 @@ func main() {
 
 	document.Find("div.lister-item.mode-detail").Each(func(_ int, s *goquery.Selection) {
 		title := getValueFromSiteSelection(s, "div.lister-item-content h3.lister-item-header a", "")
-		fmt.Println(title)
+		score := getValueFromSiteSelection(s, "div.ipl-rating-widget div.ipl-rating-star.small span.ipl-rating-star__rating", "")
+		fmt.Println(title, score)
 	})
 }
