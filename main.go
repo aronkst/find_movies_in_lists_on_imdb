@@ -14,10 +14,11 @@ func main() {
 	}
 
 	document.Find("div.lister-item.mode-detail").Each(func(_ int, s *goquery.Selection) {
-		title := getValueFromSiteSelection(s, "div.lister-item-content h3.lister-item-header a", "")
-		score := getValueFromSiteSelection(s, "div.ipl-rating-widget div.ipl-rating-star.small span.ipl-rating-star__rating", "")
-		metascore := getValueFromSiteSelection(s, "div.inline-block.ratings-metascore span.metascore.favorable", "")
-		votes := getValueFromSiteSelection(s, "p.text-muted.text-small span[name='nv']", "data-value")
+		title := getTitle(s)
+		score := getScore(s)
+		metascore := getMetascore(s)
+		votes := getVotes(s)
+
 		fmt.Println(title, score, metascore, votes)
 	})
 }

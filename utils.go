@@ -32,3 +32,11 @@ func stringToFloat(value string) float64 {
 func fillURLWithList(list string) string {
 	return fmt.Sprintf("https://www.imdb.com/list/%s/", list)
 }
+
+func createAverage(score float64, metascore int64) float64 {
+	if metascore == 0 {
+		return score
+	}
+	metascoreFloat := float64(metascore) / 10.0
+	return (score + metascoreFloat) / 2.0
+}
