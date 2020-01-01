@@ -7,7 +7,9 @@ import (
 )
 
 func main() {
-	site := fillURLWithList("")
+	list, average, votes := getParamsValues()
+
+	site := fillURLWithList(list)
 	document, err := loadSite(site)
 	if err != nil {
 		panic(err)
@@ -19,11 +21,11 @@ func main() {
 		title := getTitle(s)
 		score := getScore(s)
 		metascore := getMetascore(s)
-		votes := getVotes(s)
+		movieVotes := getVotes(s)
 
-		average := getAverage(score, metascore)
+		movieAverage := getAverage(score, metascore)
 
-		if average >= 7.5 && votes >= 100000 {
+		if movieAverage >= average && movieVotes >= votes {
 			movies = append(movies, title)
 		}
 	})
