@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+find_movies_in_lists_on_imdb
 
 # Test binary, built with `go test -c`
 *.test
