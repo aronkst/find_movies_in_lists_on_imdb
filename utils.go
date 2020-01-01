@@ -31,6 +31,9 @@ func stringToFloat(value string) float64 {
 }
 
 func fillURLWithList(list string) string {
+	if strings.Contains(list, "//") {
+		return list
+	}
 	return fmt.Sprintf("https://www.imdb.com/list/%s/", list)
 }
 
