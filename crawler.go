@@ -30,11 +30,6 @@ func loadSite(url string) (*goquery.Document, error) {
 	return document, nil
 }
 
-func getValueFromSiteDocument(document *goquery.Document, selector string, attribute string) string {
-	selection := document.Selection
-	return getValueFromSiteSelection(selection, selector, attribute)
-}
-
 func getValueFromSiteSelection(selection *goquery.Selection, selector string, attribute string) string {
 	var value string
 
