@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -39,4 +40,11 @@ func getAverage(score float64, metascore int64) float64 {
 	}
 	metascoreFloat := float64(metascore) / 10.0
 	return (score + metascoreFloat) / 2.0
+}
+
+func getParamsValues() (string, float64, int64) {
+	list := os.Args[1]
+	average := stringToFloat(os.Args[2])
+	votes := stringToInt(os.Args[3])
+	return list, average, votes
 }
