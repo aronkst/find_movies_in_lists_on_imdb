@@ -33,7 +33,7 @@ func fillURLWithList(list string) string {
 	return fmt.Sprintf("https://www.imdb.com/list/%s/", list)
 }
 
-func createAverage(score float64, metascore int64) float64 {
+func getAverage(score float64, metascore int64) float64 {
 	if metascore == 0 {
 		return score
 	}
