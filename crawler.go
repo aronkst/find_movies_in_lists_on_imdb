@@ -47,3 +47,25 @@ func getValueFromSiteSelection(selection *goquery.Selection, selector string, at
 	value = clearString(value)
 	return value
 }
+
+func getTitle(selection *goquery.Selection) string {
+	return getValueFromSiteSelection(selection, "div.lister-item-content h3.lister-item-header a", "")
+}
+
+func getScore(selection *goquery.Selection) float64 {
+	score := getValueFromSiteSelection(selection, "div.ipl-rating-widget div.ipl-rating-star.small span.ipl-rating-star__rating", "")
+	return stringToFloat(score)
+}
+
+func getMetascore(selection *goquery.Selection) int64 {
+	metascore := getValueFromSiteSelection(selection, "div.inline-block.ratings-metascore span.metascore.favorable", "")
+	if metascore == "" {
+		return 0
+	}
+	return stringToInt(metascore)
+}
+
+func getVotes(selection *goquery.Selection) int64 {
+	votes := getValueFromSiteSelection(selection, "p.text-muted.text-small span[name='nv']", "data-value")
+	return stringToInt(votes)
+}
