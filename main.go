@@ -13,6 +13,8 @@ func main() {
 		panic(err)
 	}
 
+	var movies []string
+
 	document.Find("div.lister-item.mode-detail").Each(func(_ int, s *goquery.Selection) {
 		title := getTitle(s)
 		score := getScore(s)
@@ -21,6 +23,12 @@ func main() {
 
 		average := getAverage(score, metascore)
 
-		fmt.Println(title, score, metascore, votes, average)
+		if average >= 7.5 && votes >= 100000 {
+			movies = append(movies, title)
+		}
 	})
+
+	for _, movie := range movies {
+		fmt.Println(movie)
+	}
 }
