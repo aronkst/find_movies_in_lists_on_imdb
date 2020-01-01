@@ -19,6 +19,8 @@ func main() {
 		metascore := getMetascore(s)
 		votes := getVotes(s)
 
-		fmt.Println(title, score, metascore, votes)
+		average := getAverage(score, metascore)
+
+		fmt.Println(title, score, metascore, votes, average)
 	})
 }
